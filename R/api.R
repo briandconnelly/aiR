@@ -2,7 +2,6 @@ api_request <- function(type = c("observation", "forecast"),
                         location = c("zipCode", "latLong"),
                         time = c("current", "historical"),
                         query) {
-
     type <- rlang::arg_match(type)
     location <- rlang::arg_match(location)
 

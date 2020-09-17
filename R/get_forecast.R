@@ -23,7 +23,6 @@ get_forecast <- function(zip = NULL,
                          date = Sys.Date(),
                          distance = 25,
                          api_key = Sys.getenv("AIRNOW_API_KEY")) {
-
     get_airnow_data(
         type = "forecast",
         zip = zip,

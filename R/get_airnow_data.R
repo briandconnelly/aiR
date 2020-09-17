@@ -8,13 +8,12 @@ get_airnow_data <- function(type = c("observation", "forecast"),
     type <- rlang::arg_match(type)
 
     if (!is.null(zip)) {
-        location = "zipCode"
+        location <- "zipCode"
         query <- list(zipCode = zip)
 
         if (!is.null(latitude) | !is.null(longitude)) {
             rlang::warn("Ignoring 'latitude' and 'longitude' parameters")
         }
-
     } else if (!is.null(latitude) & !is.null(longitude)) {
         location <- "latLong"
         query <- list(latitude = latitude, longitude = longitude)

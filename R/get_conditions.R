@@ -24,11 +24,10 @@
 #' }
 get_conditions <- function(zip = NULL,
                            latitude = NULL,
-                        longitude = NULL,
-                               date = NULL,
-                               distance = 25,
-                               api_key = Sys.getenv("AIRNOW_API_KEY")) {
-
+                           longitude = NULL,
+                           date = NULL,
+                           distance = 25,
+                           api_key = Sys.getenv("AIRNOW_API_KEY")) {
     get_airnow_data(
         type = "observation",
         zip = zip,
@@ -39,4 +38,3 @@ get_conditions <- function(zip = NULL,
         api_key = api_key
     )
 }
-
