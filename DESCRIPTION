@@ -18,4 +18,6 @@ RoxygenNote: 7.1.1
 Imports: 
     stringr,
     readr,
-    httr
+    httr,
+    lifecycle
+RdMacros: lifecycle
