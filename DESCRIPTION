@@ -1,12 +1,13 @@
 Package: aiR
-Title: What the Package Does (One Line, Title Case)
+Title: Download Air Quality Data via the 'AirNow' API
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Brian",
            family = "Connelly",
            role = c("aut", "cre"),
-           email = "bconnelly@ookla.com")
-Description: What the package does (one paragraph).
+           email = "bconnelly@ookla.com",
+           comment = c(ORCID = "0000-0002-9948-0379"))
+Description:  Download data from the 'AirNow' API
 License: MIT + file LICENSE
 Suggests: 
     testthat
