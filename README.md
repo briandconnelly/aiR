@@ -20,6 +20,15 @@ You can install the released version of aiR from
 
     install.packages("aiR")
 
+Development version
+-------------------
+
+To get a bug fix or to use a feature from the development version, you
+can install the development version of aiR from GitHub.
+
+    # install.packages("devtools")
+    devtools::install_github("briandconnelly/aiR")
+
 Example
 -------
 

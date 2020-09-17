@@ -29,6 +29,16 @@ You can install the released version of aiR from [CRAN](https://CRAN.R-project.o
 install.packages("aiR")
 ```
 
+## Development version
+
+To get a bug fix or to use a feature from the development version, you can install the development version of aiR from GitHub.
+
+```r
+# install.packages("remotes")
+remotes::install_github("briandconnelly/aiR")
+```
+
+
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
