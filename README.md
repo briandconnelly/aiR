@@ -36,12 +36,12 @@ This is a basic example which shows you how to solve a common problem:
 
     library(aiR)
 
-    get_zip_conditions(zip = 98105)
-    #> No encoding supplied: defaulting to UTF-8.
+    get_conditions(zip = 98105)
+    #> ℹ Using URL http://www.airnowapi.org/aq/observation/zipCode/current?zipCode=98105&format=text%2Fcsv&distance=25&date=2020-09-17&API_KEY=329E30B6-1474-4644-B238-6F36E2BF1912
     #> # A tibble: 2 x 11
     #>   DateObserved HourObserved LocalTimeZone ReportingArea StateCode Latitude
     #>   <date>              <dbl> <chr>         <chr>         <chr>        <dbl>
-    #> 1 2020-09-17             10 PST           Seattle-Bell… WA            47.6
-    #> 2 2020-09-17             10 PST           Seattle-Bell… WA            47.6
+    #> 1 2020-09-17             13 PST           Seattle-Bell… WA            47.6
+    #> 2 2020-09-17             13 PST           Seattle-Bell… WA            47.6
     #> # … with 5 more variables: Longitude <dbl>, ParameterName <chr>, AQI <dbl>,
     #> #   CategoryNumber <int>, CategoryName <ord>

@@ -46,5 +46,5 @@ This is a basic example which shows you how to solve a common problem:
 ```{r Air conditions in Seattle}
 library(aiR)
 
-get_zip_conditions(zip = 98105)
+get_conditions(zip = 98105)
 ```

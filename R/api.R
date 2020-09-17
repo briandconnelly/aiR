@@ -7,7 +7,6 @@ api_request <- function(type = c("observation", "forecast"),
     location <- rlang::arg_match(location)
 
     url <- httr::parse_url("http://www.airnowapi.org")
-
     if (type == "observation") {
         url$path <- stringr::str_glue("aq/{type}/{location}/{time}")
     } else {
