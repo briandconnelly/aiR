@@ -5,9 +5,19 @@ get_airnow_data <- function(type = c("observation", "forecast"),
                             date = Sys.Date(),
                             distance = 25,
                             api_key = Sys.getenv("AIRNOW_API_KEY")) {
+
     type <- rlang::arg_match(type)
 
+    assertthat::assert_that(
+        assertthat::is.number(distance),
+        distance >= 0
+    )
+
     if (!is.null(zip)) {
+        if (!stringr::str_detect(as.character(zip), "^\\d{5}$")) {
+            rlang::abort(stringr::str_glue("'{zip}' does not appear to be a valid 5-digit US ZIP code"))
+        }
+
         location <- "zipCode"
         query <- list(zipCode = zip)
 
@@ -15,6 +25,15 @@ get_airnow_data <- function(type = c("observation", "forecast"),
             rlang::warn("Ignoring 'latitude' and 'longitude' parameters")
         }
     } else if (!is.null(latitude) & !is.null(longitude)) {
+        assertthat::assert_that(
+            assertthat::is.number(latitude),
+            latitude >= -90,
+            latitude < 90,
+            assertthat::is.number(longitude),
+            longitude >= -180,
+            longitude <= 180
+        )
+
         location <- "latLong"
         query <- list(latitude = latitude, longitude = longitude)
     } else {
