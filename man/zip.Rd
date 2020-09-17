@@ -26,11 +26,9 @@ Tibble containing current conditions for the given ZIP code
 }
 \description{
 \code{get_zip_conditions} gets forecasted conditions for a given ZIP code
+\lifecycle{experimental}
 
 \code{get_zip_forecast} gets forecasted conditions for a given ZIP code
-}
-\details{
-\lifecycle{experimental}
 }
 \examples{
 

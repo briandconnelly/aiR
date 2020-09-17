@@ -1,7 +1,7 @@
 #' Get air quality info for a US ZIP code
 #'
-#' \lifecycle{experimental}
 #' @description \code{get_zip_conditions} gets forecasted conditions for a given ZIP code
+#' \lifecycle{experimental}
 #' @param zip US ZIP code
 #' @param distance If no data are associated with the given ZIP code, find observations from nearby reporting areas within this distance (in miles) (default: `25`)
 #' @param api_key AirNow API key
