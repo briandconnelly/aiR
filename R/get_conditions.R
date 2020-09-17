@@ -29,57 +29,14 @@ get_conditions <- function(zip = NULL,
                                distance = 25,
                                api_key = Sys.getenv("AIRNOW_API_KEY")) {
 
-
-    if (!is.null(zip)) {
-        location = "zipCode"
-        query <- list(zipCode = zip)
-
-        if (!is.null(latitude) | !is.null(longitude)) {
-            rlang::warn("Ignoring 'latitude' and 'longitude' parameters")
-        }
-
-    } else if (!is.null(latitude) & !is.null(longitude)) {
-        location <- "latLong"
-        query <- list(latitude = latitude, longitude = longitude)
-    } else {
-        rlang::abort("Must provide either latitude/longitude or ZIP code")
-    }
-
-    if (is.null(date)) {
-        date <- Sys.Date()
-        target_time <- "current"
-    } else {
-        target_time <- "historical"
-        if (!stringr::str_ends(date, "T00-0000")) {
-            date <- stringr::str_glue("{date}T00-0000")
-        }
-    }
-    # TODO check for future dates?
-
-    result <- api_request(
+    get_airnow_data(
         type = "observation",
-        location = location,
-        time = target_time,
-        query = append(
-            query,
-            list(
-                format = "text/csv",
-                distance = distance,
-                date = date,
-                API_KEY = api_key
-            )
-        )
-    )
-
-    httr::content(
-        result,
-        type = "text/csv",
-        encoding = "UTF-8",
-        col_types = readr::cols(
-            DateObserved = readr::col_date(),
-            CategoryNumber = readr::col_integer(),
-            CategoryName = readr::col_factor(levels = c("Unavailable", "Hazardous", "Very Unhealthy", "Unhealthy", "Unhealthy for Sensitive Groups", "Moderate", "Good"), ordered = TRUE)
-        )
+        zip = zip,
+        latitude = latitude,
+        longitude = longitude,
+        date = date,
+        distance = distance,
+        api_key = api_key
     )
 }
 

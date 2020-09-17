@@ -24,45 +24,13 @@ get_forecast <- function(zip = NULL,
                          distance = 25,
                          api_key = Sys.getenv("AIRNOW_API_KEY")) {
 
-    if (!is.null(zip)) {
-        location = "zipCode"
-        query <- list(zipCode = zip)
-
-        if (!is.null(latitude) | !is.null(longitude)) {
-            rlang::warn("Ignoring 'latitude' and 'longitude' parameters")
-        }
-
-    } else if (!is.null(latitude) & !is.null(longitude)) {
-        location <- "latLong"
-        query <- list(latitude = latitude, longitude = longitude)
-    } else {
-        rlang::abort("Must provide either latitude/longitude or ZIP code")
-    }
-
-    result <- api_request(
+    get_airnow_data(
         type = "forecast",
-        location = location,
-        time = "current",
-        query = append(
-            query,
-            list(
-                format = "text/csv",
-                distance = distance,
-                date = date,
-                API_KEY = api_key
-            )
-        )
-    )
-
-    httr::content(
-        result,
-        type = "text/csv",
-        encoding = "UTF-8",
-        col_types = readr::cols(
-            DateIssue = readr::col_date(),
-            DateForecast = readr::col_date(),
-            CategoryNumber = readr::col_integer(),
-            CategoryName = readr::col_factor(levels = c("Unavailable", "Hazardous", "Very Unhealthy", "Unhealthy", "Unhealthy for Sensitive Groups", "Moderate", "Good"), ordered = TRUE)
-        )
+        zip = zip,
+        latitude = latitude,
+        longitude = longitude,
+        date = date,
+        distance = distance,
+        api_key = api_key
     )
 }
