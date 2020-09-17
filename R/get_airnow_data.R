@@ -10,7 +10,8 @@ get_airnow_data <- function(type = c("observation", "forecast"),
 
     assertthat::assert_that(
         assertthat::is.number(distance),
-        distance >= 0
+        distance >= 0,
+        assertthat::is.string(api_key)
     )
 
     if (!is.null(zip)) {
@@ -66,7 +67,7 @@ get_airnow_data <- function(type = c("observation", "forecast"),
             DateIssue = readr::col_date(),
             DateForecast = readr::col_date(),
             CategoryNumber = readr::col_integer(),
-            CategoryName = readr::col_factor(levels = c("Unavailable", "Hazardous", "Very Unhealthy", "Unhealthy", "Unhealthy for Sensitive Groups", "Moderate", "Good"), ordered = TRUE)
+            CategoryName = readr::col_factor(levels = aqi_category_names, ordered = TRUE)
         )
     }
 
