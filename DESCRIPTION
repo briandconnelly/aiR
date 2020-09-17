@@ -19,5 +19,6 @@ Imports:
     stringr,
     readr,
     httr,
-    lifecycle
+    lifecycle,
+    rlang
 RdMacros: lifecycle
