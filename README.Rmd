@@ -20,14 +20,13 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/aiR)](https://CRAN.R-project.org/package=aiR)
 <!-- badges: end -->
 
+aiR is an [R](https://www.r-project.org) package for querying and retrieving air quality information from [AirNow](https://www.airnow.gov) via the [AirNow API](https://airnowapi.org).
+Current and historical readings as well as forecasts can be retrieved as tidy data frames.
+
 
 ## Installation
 
-You can install the released version of aiR from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("aiR")
-```
+This package is changing rapidly, so it's not quite ready for CRAN.
 
 ## Development version
 
@@ -38,13 +37,23 @@ To get a bug fix or to use a feature from the development version, you can insta
 remotes::install_github("briandconnelly/aiR")
 ```
 
+## Creating an API Token
 
-## Example
+The [AirNow API](https://airnowapi.org) is generally free to use.
+The `use_airnow()` function can be used to help you create and configure your API token.
 
-This is a basic example which shows you how to solve a common problem:
+```r
+aiR::use_airnow()
+```
+
+
+## Air Quality in Seattle
+
+The AirNow API allows you to query air conditions either by ZIP code or latitude/longitude.
+Here, we'll get the current conditions in Seattle by ZIP code:
 
 ```{r Air conditions in Seattle}
 library(aiR)
 
-get_conditions(zip = 98105)
+get_conditions(zip = 98101)
 ```
