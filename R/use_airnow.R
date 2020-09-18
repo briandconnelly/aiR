@@ -1,6 +1,7 @@
 #' Register and Configure AirNow API Tokens
 #'
 #' @param browse Whether to open a browser window to create/view AirNow API token (default: `TRUE` for interactive sessions, `FALSE` otherwise)
+#' @note Be sure to re-start your R session after setting API token
 #'
 #' @export
 #'

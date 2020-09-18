@@ -12,6 +12,9 @@ use_airnow(browse = rlang::is_interactive())
 \description{
 Register and Configure AirNow API Tokens
 }
+\note{
+Be sure to re-start your R session after setting API token
+}
 \examples{
 \dontrun{use_airnow()}
 }
