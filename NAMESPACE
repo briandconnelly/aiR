@@ -3,4 +3,5 @@
 export(aqi_category_names)
 export(get_conditions)
 export(get_forecast)
+export(use_airnow)
 importFrom(lifecycle,deprecate_soft)

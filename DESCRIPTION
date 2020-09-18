@@ -7,15 +7,18 @@ Authors@R:
            role = c("aut", "cre"),
            email = "bconnelly@ookla.com",
            comment = c(ORCID = "0000-0002-9948-0379"))
-Description: Download data from the 'AirNow' API
+Description: 'AirNow' <https://www.airnow.gov> reports air quality information using an Air Quality Index (AQI). This package provides methods to query, retrieve, and interact these data.
 License: MIT + file LICENSE
+URL: https://github.com/briandconnelly/aiR, https://docs.airnowapi.org/
+BugReports: https://github.com/briandconnelly/aiR/issues
 Imports: 
     assertthat,
     httr,
     lifecycle,
     readr,
     rlang,
-    stringr
+    stringr,
+    usethis
 Suggests: 
     testthat
 RdMacros: 
