@@ -58,3 +58,10 @@ ZIP code:
     #> 2 2020-09-17             17 PST           Seattle-Bell… WA            47.6
     #> # … with 5 more variables: Longitude <dbl>, ParameterName <chr>, AQI <dbl>,
     #> #   CategoryNumber <int>, CategoryName <ord>
+
+Code of Conduct
+---------------
+
+Please note that the aiR project is released with a [Contributor Code of
+Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
